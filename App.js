@@ -8,6 +8,7 @@ export default class App extends React.Component {
     };
     return (
       //<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <Image source={pic} style={{width: 193, height: 110}}/>
       <View style={styles.container}>
         <Text>Hi from my son Omar!</Text>
         <Text>I love My Family !!</Text>
