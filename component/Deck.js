@@ -10,7 +10,7 @@ class Deck extends Component {
             onMoveShouldSetPanResponder: () => true,
                 // gesture object old what and how the user touch in the screen
             onPanResponderMove: (event, gesture) => {
-               // console.log(gesture);
+                console.log(gesture);
             },
             
             onPanResponderRelease: () => {}
