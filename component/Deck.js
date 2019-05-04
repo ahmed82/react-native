@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Animated, PanResponder } from 'react-native';
+import { View, Animated, PanResponder, Dimensions } from 'react-native';
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
 class Deck extends Component {
     constructor(props){
         super(props);
@@ -14,17 +15,27 @@ class Deck extends Component {
                position.setValue({x: gesture.dx,y: gesture.dy})
             },
             
-            onPanResponderRelease: () => {}
+            onPanResponderRelease: () => {
+                this.resetPosition();
+
+            }
         });
          /* there is no good resone to assign the panResponder to state */
         this.state = { panResponder, position };
     }
 
+    resetPosition(){
+        Animated.spring(this.state.position, {
+            toValue: {x: 0, y: 0}
+        }).start();
+    }
+
     getCardStyle(){
         const { position } = this.state;
         const rotate = position.x.interpolate({
-                inputRange: [-500, 0, 500],
-                outputRange: ['-120deg', '0deg', '120deg']
+               // inputRange: [-500, 0, 500], // move to be daynamic for screen width
+               inputRange: [-SCREEN_WIDTH, 0, SCREEN_WIDTH], 
+               outputRange: ['-120deg', '0deg', '120deg']
         });
         return {
             //...this.state.position.getLayout(), we already desetructre it above
