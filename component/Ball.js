@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Animated } from 'react-native';
 
+
 class Ball extends Component {
     componentWillMount(){
         this.position = new Animated.ValueXY(0, 0);

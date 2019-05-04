@@ -1,0 +1,59 @@
+import React from 'react';
+//or import React, { Component } from 'react'; // to extends Component //only
+import { 
+  AppRegistry, StyleSheet,Image, Text, View
+ } from 'react-native';
+//import Ball from './component/Ball';
+import Deck from './component/Deck';
+
+const DATA  = [
+  {name: "Company One", category: "Finance", start: 1981, end: 2004},
+  {name: "Company Two", category: "Retail", start: 1992, end: 2008},
+  {name: "Company Three", category: "HR", start: 1999, end: 2007},
+  {name: "Company Four", category: "Retail", start: 1989, end: 2010},
+  {name: "Company Five", category: "Technology", start: 2009, end: 2014},
+  {name: "Company Six", category: "IT", start: 1987, end: 2010},
+  {name: "Company Seven", category: "Shipping", start: 1986, end: 1996},
+  {name: "Company Eight", category: "Technology", start: 2011, end: 2016},
+  {name: "Company Nine", category: "Retail", start: 1981, end: 1989}
+  ];
+export default class App extends React.Component {
+  rednerCard(item){
+    return (
+      <Text>item.category</Text>
+    )
+  }
+  render() {
+    /* let pic = {
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    }; */
+    return (
+      /*The line bellow if you don't want to use  "StyleSheet" componant from react-native
+      //<View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}> */
+      <View>
+        {/* <Image source={pic} style={{width: 193, height: 110}}/> 
+        <View style={styles.container}>
+        <Ball /> */}
+        <View style={styles.container}>
+        <Deck 
+             data={DATA}
+             rednerCard={this.rednerCard}
+             />
+        </View> 
+      </View>
+    );
+  }
+}
+ // <Text>Hi from my son Omar!</Text>
+ // <Text>I love My Family !!</Text>
+// skip this line if using Create React Native App
+AppRegistry.registerComponent('AwesomeProject', () => App);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#a53',
+  //   alignItems: 'center',
+   // justifyContent: 'center', */
+  },
+});
