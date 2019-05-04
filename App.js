@@ -17,8 +17,7 @@ const DATA  = [
   {id: 8, name: "Company Eight", category: "Technology", start: 2011, end: 2016},
   {id: 9, name: "Company Nine", category: "Retail", start: 1981, end: 1989}
   ];
-          //<Text>{item.category}</Text>
-/* */
+
 export default class App extends React.Component {
     renderCard(item){
         return (
